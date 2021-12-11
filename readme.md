@@ -86,6 +86,7 @@ Next, use the FormBuilder to build an element. For example:
 <a href="#opening-a-form"></a>
 ### Opening a Form
 
+### Hello World
 ```php
 // <form method="POST">
 <?= $builder->open(); ?>
