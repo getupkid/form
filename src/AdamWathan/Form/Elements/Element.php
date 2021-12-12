@@ -5,6 +5,45 @@ namespace AdamWathan\Form\Elements;
 abstract class Element
 {
     protected $attributes = [];
+    
+    protected $content;
+
+    protected $element;
+
+    protected $close;
+    
+    /**
+     * Set the content of the element.
+     * 
+     * @param  string  $content This could be any string or another element injected into the method.
+     */
+    public function content($content)
+    {
+        $this->content = $content;
+        return $this;
+    }
+
+    /**
+     * A wrapper for $this->content(). Does the same thing.
+     * 
+     * @param  string  $text This could be any string or another element injected into the method.
+     */
+    public function text($text)
+    {
+        $this->content = $text;
+        return $this;
+    }
+
+    /**
+     * Provides a fluent option to close the element.
+     * 
+     * @param  string  $text This could be any string or another element injected into the method.
+     */
+    public function close()
+    {
+        $this->close = "</{$this->element}>";
+        return $this;
+    }
 
     protected function setAttribute($attribute, $value = null)
     {
